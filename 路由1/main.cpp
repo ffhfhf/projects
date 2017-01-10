@@ -439,6 +439,7 @@ int main()
 {
     int weight;
     int chose;
+    cout<<"³Â¹û"<<endl;
     primary1();
     primary2();
     cout<<"                         ============================ "<<endl;
