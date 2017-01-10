@@ -165,7 +165,6 @@ void operaddpo()//增加结点
         }
     }
     current=main1[k].link;
-    cout<<current->i<<endl;
     while(current->link!=NULL)
     {
         current=current->link;
@@ -179,7 +178,7 @@ void operaddpo()//增加结点
    temp=new link2;
    cin>>h;
    cin>>j;
-   temp->i=i;
+   temp->i=h;
    temp->j=j;
    current1->link=temp;
    current1=temp;
@@ -272,7 +271,7 @@ int getweight(int i,int j)//取权值
   }
   return current->j;
 }
-void dex(int i)
+void dex(int i)//递归生成树
 {
     int count2=0;
     int fg=0;
