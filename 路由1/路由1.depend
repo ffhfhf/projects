@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1484022921 source:e:\14-ÀîºÆ\Â·ÓÉ1\main.cpp
+	<iostream>
+	<fstream>
+	<cmath>
+	<string>
+	<stack>
+	<queue>
+	<windows.h>
+

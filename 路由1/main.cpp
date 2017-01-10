@@ -1,6 +1,9 @@
 #include<iostream>
 #include<fstream>
+#include<cmath>
 #include<string>
+#include<stack>
+#include<queue>
 #include<windows.h>
 
 using namespace std;
@@ -22,7 +25,15 @@ struct link1
     int flag;//删除位
     link2*link=NULL;
 };
+struct binary
+{
+    int pre;
+    int next[100];
+    int nwei=0;
+};
+binary create[100];
 link1 main1[100];
+int count1;
 void primary1()//初始化路由结点
 {
     string s;
@@ -261,12 +272,38 @@ int getweight(int i,int j)//取权值
   }
   return current->j;
 }
+void dex(int i)
+{
+    int count2=0;
+    int fg=0;
+    int k=create[i].nwei;
+    if(k==0)
+    {
+        cout<<endl;
+        cout<<endl;
+        return;
+    }
+    while(k--)
+    {
+        fg=create[i].next[k];
+        while(path[fg]!=count1)
+        {
+            ++count2;
+            fg=path[fg];
+        }
+        for(int i=0;i<count2;i++)
+        {
+            cout<<"-----"<<" ";
+        }
+        cout<<main1[create[i].next[k]].i;
+        dex(create[i].next[k]);
+    }
+}
 void prinluyou()//生成路由表
 {
    string g;
    cout<<"输入要生成的路由表的名称"<<endl;
    cin>>g;
-   int count1;
    for(count1=0;count1<n;count1++)
    {
        if(main1[count1].i==g)
@@ -315,18 +352,22 @@ void prinluyou()//生成路由表
            }
        }
    }
-   for(i=0;i<n;i++)
+   for(i=0;i<n;i++)//存储下一跳和上一跳
    {
        if(i==count1)
        {
-           continue;
+           create[i].pre=-1;
        }
-       if(path[i]==-1)
+       else
        {
-           continue;
+           create[i].pre=path[i];
+           k=path[i];
+           create[k].next[create[k].nwei]=i;
+           create[k].nwei++;
        }
-
    }
+   dex(count1);
+   cout<<endl;
    cout<<"------------------------------------"<<endl;
    cout<<"      目的ip               下一跳   "<<endl;
    for(k=0;k<n;k++)
