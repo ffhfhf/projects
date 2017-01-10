@@ -22,6 +22,7 @@ struct link1
     link2*link=NULL;
 };
 link1 main1[100];
+
 void primary1()//初始化路由结点
 {
     string s;
@@ -69,6 +70,7 @@ void primary2()//初始化结点的关联结点
         }
     }
 }
+
 void operdepo()//删除结点操作
 {
   string i;
@@ -371,6 +373,12 @@ int main()
           {
               operdepo();
           }
+          cout<<"是否保存修改是输入0"<<endl;
+          cin>>chose;
+          if(chose==0)
+          {
+              memory();
+          }
           break;
     case 2:
            cout<<"1 增加边 2删除边"<<endl;
@@ -383,6 +391,12 @@ int main()
            {
                operdepa();
            }
+          cout<<"是否保存修改是输入0"<<endl;
+          cin>>chose;
+          if(chose==0)
+          {
+              memory();
+          }
           break;
     case 3:
         prinluyou();
