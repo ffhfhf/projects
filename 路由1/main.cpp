@@ -428,6 +428,10 @@ void memory()//±£´æĞŞ¸Ä
            {
                current=current->link;
            }
+           if(current==NULL)
+           {
+               break;
+           }
            out1<<current->i<<" "<<current->j<<" ";
            current=current->link;
        }
