@@ -238,7 +238,7 @@ void operaddpa()//Ôö¼Ó±ß
         current=current->link;
     }
     temp=new link2;
-    temp->i=j;
+    temp->i=i;
     temp->j=gh;
     current->link=temp;
 }
